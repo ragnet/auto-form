@@ -1,0 +1,29 @@
+*{ font-size:13px; font-family:Tahoma, Geneva, sans-serif; }
+
+form{ display:block; width:500px; }
+
+form label{ display:block; width:500px; background:#eee; border-bottom:1px red solid; padding:10px; }
+.rotulo{ display:block; width:500px; font-weight:bold; }
+
+form input[type=submit]{ display:block; width:80px; margin:20px auto; }
+
+.multiplo-base{ display:none; }
+.container{ clear:both; }
+.sub-rotulo{ display:block; float:left; padding:3px; }
+.sub-rotulo-n{ width:25px; text-align:right; padding:3px 5px 3px 0; }
+
+.texto-grande{ resize:none; }
+
+.container div{ margin:0 0 4px 0; }
+
+.form-ret{ width:500px; padding:10px; }
+.form-ret-erro{ border-bottom:1px #F60 solid; background:#FF9; color:#F60; }
+.form-ret-sucesso{ border-bottom:1px #090 solid; background:#CFC; color:#090; }
+
+.peca-serial{ width:100px; margin:0 4px 0 0; }
+.peca-desc{ width:200px; margin:0 4px 0 0; }
+.peca-qtd{ width:100px; margin:0 4px 0 0; }
+
+.painel{ position:relative; }			
+.painel .controle-add{ position:absolute; right:25px; top:-16px; }
+.painel .controle-rem{ position:absolute; right:0; top:-16px; }

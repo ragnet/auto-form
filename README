@@ -1,0 +1,15 @@
+*
+* auto-form
+*
+* html4+css3+jquery automatic creation 
+* and validation based on configurable 
+* xml file.
+*
+* 0.5 beta
+*
+* 22-mar-2012
+*
+* ragnet@gmail.com
+*
+* TO DO: fields typed as 'multiplo' only accept texts as subfields
+*

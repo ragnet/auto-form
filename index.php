@@ -103,10 +103,11 @@
 						"rotulo"	=> "Peças",
 						"rotulos"	=> "No. Serial,Descrição,Quantidade",
 						"id"		=> "peca",
-						"ids"		=> "serial,descricao,quantidade", /* todos type=text (TO DO) */
+						"ids"		=> "serial,descricao,quantidade", /* TO DO: permitir outros campos que não sejam type=text */
 						"padrao"	=> "",
 						"estilo"	=> "peca-serial,peca-desc,peca-qtd",
-						"tamanho"	=> "12,100,5"
+						"tamanho"	=> "12,100,5",
+						"valida"	=> "obrigatorio,obrigatorio,obrigatorio"
 					
 					)
 		
@@ -140,15 +141,54 @@
 				
 		$erros = array();
 	
-		// validações //
+		/* TO DO: aplicar várias funcões */
+	
+		// validações - uma função //
 	
 		foreach( $form["campos"] as $campo ){
-	
-			$id = $form["id"] . $campo["id"];
 			
-			if( function_exists( $campo["valida"] ) ){
-
-				call_user_func( $campo["valida"], $post[$id] ) ? NULL : array_push( $erros, $campo["rotulo"] );
+			if( $campo["tipo"] == "multiplo" ){
+				
+				// campo multiplo //
+				
+				$quantidade = $post[$form["id"] . $campo["id"] . "qtd"];
+				
+				if( $quantidade > 0 ){
+					
+					$tmpIds = explode( ",", $campo["ids"] );
+					$tmpRotulos = explode( ",", $campo["rotulos"] );
+					$tmpTamanhos = explode( ",", $campo["tamanho"] );				
+					$tmpValidacoes = explode( ",", $campo["valida"] );
+				
+					for( $x = 0; $x < $quantidade; $x++ ){
+						
+						foreach( $tmpIds as $k => $subid ){
+							
+							$id = $form["id"] . $campo["id"] . $subid . $x;
+							
+							if( function_exists( $tmpValidacoes[$k] ) ){
+	
+								call_user_func( $tmpValidacoes[$k], $post[$id] ) ? NULL : array_push( $erros, $campo["rotulo"] . " - " . $tmpRotulos[$k] . " (" . ( $x + 1 ) . ")" );
+					
+							}							
+							
+						}
+						
+					}
+					
+				}	
+				
+			} else{
+	
+				// campos text, select e textarea
+				
+				$id = $form["id"] . $campo["id"];
+				
+				if( function_exists( $campo["valida"] ) ){
+	
+					call_user_func( $campo["valida"], $post[$id] ) ? NULL : array_push( $erros, $campo["rotulo"] );
+					
+				}
 				
 			}
 		
@@ -310,8 +350,6 @@
 					}
 					
 				}
-				
-				unset( $tmpBase );
 				
 				echo "</div>";				
 				

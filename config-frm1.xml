@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<auto-form>
+
+	<config>
+	
+		<id>frm1</id>
+		
+		<acao>./</acao>
+		
+		<acao-rotulo>enviar</acao-rotulo>
+		
+		<tipo>post</tipo>
+		
+		<valida-erro>Preencha corretamente os campos:</valida-erro>
+		
+		<valida-sucesso>Dados enviados com sucesso.</valida-sucesso>
+		
+		<campos>
+		
+			<campo>
+			
+				<tipo>texto</tipo>
+				<rotulo>Nome</rotulo>
+				<id>nome</id>
+				<estilo/>
+				<padrao/>
+				<tamanho>100</tamanho>
+				<valida>obrigatorio</valida>
+							
+			</campo>
+			
+			<campo>
+				
+				<tipo>texto</tipo>
+				<rotulo>E-mail</rotulo>
+				<id>email</id>
+				<estilo/>
+				<padrao/>
+				<tamanho>80</tamanho>
+				<valida>obrigatorio</valida>
+				
+			</campo>
+	
+			<campo>
+				
+				<tipo>texto</tipo>
+				<rotulo>Telefone</rotulo>
+				<id>telefone</id>
+				<estilo>mask-telefone-internacional</estilo>
+				<padrao/>
+				<tamanho>12</tamanho>
+				<valida/>
+				
+			</campo>
+				
+			<campo>
+				
+				<tipo>texto-grande</tipo>
+				<rotulo>Mensagem</rotulo>
+				<id>mensagem</id>
+				<estilo/>
+				<padrao/>
+				<valida>obrigatorio</valida>
+				
+			</campo>
+	
+			<campo>
+				
+				<tipo>combo</tipo>
+				<rotulo>Estado</rotulo>
+				<id>estado</id>
+				<estilo/>
+				<padrao>array( "", "Selecione" )</padrao>
+				<tamanho/>
+				<dados>array( "SP" => "São Paulo", "RJ" => "Rio de Janeiro", "MG" => "Minas Gerais" )</dados>
+				<valida>obrigatorio</valida>			
+					
+			</campo>
+				
+			<campo>
+				
+				<tipo>multiplo</tipo>
+				<rotulo>Peças</rotulo>
+				<rotulos>No. Serial, Descrição, Quantidade</rotulos>
+				<id>peca</id>
+				<ids>serial, descricao, quantidade</ids>
+				<padroes/>
+				<estilos>peca-serial, peca-desc, peca-qtd</estilos>
+				<tamanhos>12, 100, 5</tamanhos>
+				<valida>obrigatorio, obrigatorio, obrigatorio</valida>
+				
+			</campo>				
+		
+		</campos>
+	
+	</config>
+
+</auto-form>
